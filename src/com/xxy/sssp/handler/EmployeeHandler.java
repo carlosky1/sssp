@@ -19,7 +19,7 @@ public class EmployeeHandler {
 	@RequestMapping("/empe")
 	public String list(@RequestParam(value="pageNo",required=false,defaultValue="1")String pageNoStr,
 			Map<String,Object> map){
-		System.out.println("========================");
+		System.out.println("========我是测试============");
 		int pageNo=1;
 		try {
 			//对pageNo的校验
