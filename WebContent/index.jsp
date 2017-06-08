@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="empe">显示所有员工信息</a>
+	<a href="empe">显示所有员工信息</a><br><br>
+	<a href="ees">添加员工信息</a>
 </body>
 </html>
