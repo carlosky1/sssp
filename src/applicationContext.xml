@@ -49,6 +49,7 @@
 		</property>
 		<!-- 二级缓存制作用于加Cacheabe注解的bean -->
 		<!-- 在jpa中如何用二级缓存 --><!-- 关联原码包，进行查找orm的**-source.jar 选中方法，可以在eclipse上的outline找到ENABLE_SELECTIVE-->
+		<!-- 只去缓存添加注解的实体类@Cacheable -->
 		<property name="sharedCacheMode" value="ENABLE_SELECTIVE"></property>
 		
 	</bean>
