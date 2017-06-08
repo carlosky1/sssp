@@ -40,7 +40,7 @@ public class sspTest {
 		//List<Department> departments=departmentRepository.findAll();
 		//departments=departmentRepository.findAll();
 		
-		//spring与jpa整合，使用二级缓存。只需要定义一个方法，定义jpql，用@QuertHints进行设置[把HINT_CACHEABLE设置为true]
+		//springdata与jpa整合，使用二级缓存。只需要定义一个方法，定义jpql，用@QuertHints进行设置[把HINT_CACHEABLE设置为true]
 		List<Department> departments=departmentRepository.getAll();
 		departments=departmentRepository.getAll();
 	}
