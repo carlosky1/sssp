@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -79,6 +80,25 @@ public class EmployeeHandler {
 		map.put("employee", employee);
 		map.put("departments", departmentService.getAll());
 		return "emp/input";
+	}
+	
+	//更新
+	//都是mapping请求时，且value值相同，建议写成数组，url不同，所以需要重写一个
+	@RequestMapping(value="/ees/{id}",method=RequestMethod.PUT)
+	public String update(Employee employee){
+		employeeService.save(employee);
+		return "redirect:/empe";
+	}
+	
+	//没有写这个，createTime会被置空
+	@ModelAttribute
+	public void getEmployee(@RequestParam(value="",required=false)Integer id,
+			Map<String,Object>map){
+		if(id!=null){
+			Employee employee=employeeService.get(id);
+			employee.setDept(null);//这很重要，指向一个新的对象
+			map.put("employee",employee);
+		}
 	}
 	
 }

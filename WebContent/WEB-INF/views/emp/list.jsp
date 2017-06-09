@@ -10,6 +10,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+
+
 	<c:if test="${page==null||page.numberOfElements==0}">
 		没有任何记录
 	</c:if>

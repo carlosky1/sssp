@@ -37,8 +37,12 @@ public class EmployeeService {
 	 //完成添加操作，重定向
 	 @Transactional
 	 public void save(Employee employee){
-		 //设置创建时间
-		 employee.setCreateTime(new Date());
+		 
+		if(employee.getId()==null){
+			 //设置创建时间
+			 employee.setCreateTime(new Date());
+		}
+		
 		 employeeRepository.saveAndFlush(employee);
 	 } 
 	 
