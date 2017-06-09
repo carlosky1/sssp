@@ -23,5 +23,13 @@ public class EmployeeService {
 		//pageable是一个接口，用他的实现类PageRequest
 		PageRequest pageable=new PageRequest(pageNo-1, pageSize);
 		return employeeRepository.findAll(pageable);
-	}
+	
+	}	
+	
+	
+	 @Transactional(readOnly=true)	
+	public Employee getByLastName(String lastName){
+		return employeeRepository.getByLastName(lastName);
+	 }
+	
 }

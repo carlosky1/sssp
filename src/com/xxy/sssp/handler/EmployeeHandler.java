@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.xxy.sssp.entity.Employee;
 import com.xxy.sssp.service.DepartmentService;
@@ -48,5 +49,21 @@ public class EmployeeHandler {
 		map.put("employee", new Employee());
 		return "emp/input";
 	}
+	
+	//@ResponseBody使用标记位0/1，可以不作任何处理
+	@ResponseBody
+	@RequestMapping(value="/ajaxValidateLastNames",method=RequestMethod.POST)
+	public String validateLastName(@RequestParam(value="lastName",required=true)String lastName){
+		Employee employee=employeeService.getByLastName(lastName);
+		if(employee==null){
+			return "0";
+			//return "数据加载失败";
+		}else{
+		//return "数据加载成功";
+			return "1";
+		}
+	
+	}
+	
 	
 }
