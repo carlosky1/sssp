@@ -38,7 +38,7 @@ public class EmployeeHandler {
 			
 		} catch (Exception e) {}
 		
-		Page<Employee> page=employeeService.getPage(pageNo, 5);
+		Page<Employee> page=employeeService.getPage(pageNo, 6);
 		map.put("page", page);
 		
 		return "emp/list";
@@ -99,6 +99,13 @@ public class EmployeeHandler {
 			employee.setDept(null);//这很重要，指向一个新的对象
 			map.put("employee",employee);
 		}
+	}
+	
+	//
+	@RequestMapping(value="/ees/{id}",method=RequestMethod.DELETE)
+	public  String delete(@PathVariable("id")Integer id){
+		employeeService.delete(id);
+		return "redirect:/empe";
 	}
 	
 }

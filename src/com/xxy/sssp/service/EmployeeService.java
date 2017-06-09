@@ -53,4 +53,11 @@ public class EmployeeService {
 	 public Employee get(Integer id){
 		 return employeeRepository.findOne(id);
 	 }
+	 
+	 //完成删除操作
+	 @Transactional
+	 public void delete(Integer id){
+		 employeeRepository.delete(id);
+	 }
+	 
 }
