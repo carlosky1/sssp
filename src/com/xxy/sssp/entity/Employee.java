@@ -11,12 +11,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 @Table(name="SSSP_EMPLOYEES")
 @Entity
 public class Employee {
 	private Integer id;
 	private String lastName;
 	private  String email;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date birth;
 	private Date CreateTime;
 	private Department dept;

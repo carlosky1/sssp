@@ -1,5 +1,7 @@
 package com.xxy.sssp.service;
 
+import java.util.Date;
+
 import javax.print.attribute.standard.PageRanges;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +33,12 @@ public class EmployeeService {
 	public Employee getByLastName(String lastName){
 		return employeeRepository.getByLastName(lastName);
 	 }
+	 
+	 @Transactional
+	 public void save(Employee employee){
+		 //设置创建时间
+		 employee.setCreateTime(new Date());
+		 employeeRepository.saveAndFlush(employee);
+	 } 
 	
 }

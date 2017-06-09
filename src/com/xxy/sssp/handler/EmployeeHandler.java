@@ -43,7 +43,7 @@ public class EmployeeHandler {
 	}
 	
 	
-	@RequestMapping(value="ees",method=RequestMethod.GET)
+	@RequestMapping(value="/ees",method=RequestMethod.GET)
 	public String input(Map<String,Object>map){
 		map.put("departments", departmentService.getAll());
 		map.put("employee", new Employee());
@@ -62,8 +62,13 @@ public class EmployeeHandler {
 		//return "数据加载成功";
 			return "1";
 		}
-	
 	}
 	
+	//重定向到显示所有员工的页面
+	@RequestMapping(value="/ees",method=RequestMethod.POST)
+	public String save(Employee employee){
+		employeeService.save(employee);
+		return "redirect:/empe";
+	}
 	
 }
