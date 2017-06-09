@@ -40,7 +40,7 @@
 					<!-- <td>部门</td> -->
 					<td>${emp.dept.departmentName}</td>
 					
-					<td><a href="">Edit</a></td>
+					<td><a href="${pageContext.request.contextPath}/ees/${emp.id}">Edit</a></td>
 					<td><a href="">Delete</a></td>
 				</tr>
 			</c:forEach>
